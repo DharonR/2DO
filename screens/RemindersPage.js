@@ -55,54 +55,57 @@ export default class remindersClass extends Component {
     return (
       <View style={styles.container}>
         <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-        <View style={styles.header}>
-          <Text style={styles.headerText}>REMINDERS</Text>
-        </View>
-        
-        <ScrollView style={styles.reminderList} keyboardDismissMode={"on-drag"}>
-          {remindersList}
-        </ScrollView>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.footer}>
-          <TouchableOpacity
-            onPress={this.addReminder.bind(this)}
-            style={styles.newReminderButton}
-          >
-            <Text style={styles.plusButton}>+</Text>
-          </TouchableOpacity>
-          <View style={styles.reminderBar}>
-            <TextInput
-              style={styles.reminderText}
-              onChangeText={(reminderTitle) => this.setState({ reminderTitle })}
-              value={this.state.reminderTitle}
-              placeholder="Add Reminder"
-              placeholderTextColor="white"
-            ></TextInput>
-            <View style={styles.datePicker}>
-              <Text
-                style={styles.textInput}
-              >
-                {this.state.reminderDate}
-              </Text>
-              <Button
-                style={styles.selectDate}
-                onPress={this.showDateTimePicker.bind(this)}
-                title="Set Date"
-              />
-              <DateTimePickerModal
-                isVisible={this.state.isDatePickerVisible}
-                date={this.state.rDate}
-                mode="datetime"
-                onConfirm={this.handleConfirm.bind(this)}
-                onCancel={this.hideDateTimePicker.bind(this)}
-              />
-            </View>
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.container}
+        >
+          <View style={styles.header}>
+            <Text style={styles.headerText}>REMINDERS</Text>
           </View>
-        </View>
-        </TouchableWithoutFeedback>
+
+          <ScrollView
+            style={styles.reminderList}
+            keyboardDismissMode={"on-drag"}
+          >
+            {remindersList}
+          </ScrollView>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.footer}>
+              <TouchableOpacity
+                onPress={this.addReminder.bind(this)}
+                style={styles.newReminderButton}
+              >
+                <Text style={styles.plusButton}>+</Text>
+              </TouchableOpacity>
+              <View style={styles.reminderBar}>
+                <TextInput
+                  style={styles.reminderText}
+                  onChangeText={(reminderTitle) =>
+                    this.setState({ reminderTitle })
+                  }
+                  value={this.state.reminderTitle}
+                  placeholder="Add Reminder"
+                  placeholderTextColor="white"
+                ></TextInput>
+                <View style={styles.datePicker}>
+                  <Text style={styles.textInput}>
+                    {this.state.reminderDate}
+                  </Text>
+                  <Button
+                    style={styles.selectDate}
+                    onPress={this.showDateTimePicker.bind(this)}
+                    title="Set Date"
+                  />
+                  <DateTimePickerModal
+                    isVisible={this.state.isDatePickerVisible}
+                    date={this.state.rDate}
+                    mode="datetime"
+                    onConfirm={this.handleConfirm.bind(this)}
+                    onCancel={this.hideDateTimePicker.bind(this)}
+                  />
+                </View>
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
       </View>
     );
@@ -170,9 +173,10 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "white",
-    fontSize: 18,
-    padding: 25,
-    paddingTop: 60,
+    fontSize: 38,
+    padding: 15,
+    paddingTop: 30,
+    fontFamily: "monospace",
   },
   reminderContainer: {
     padding: 100,
@@ -182,7 +186,7 @@ const styles = StyleSheet.create({
     marginBottom: 100,
   },
   footer: {
-    position: 'relative',
+    position: "relative",
     alignItems: "center",
     bottom: 10,
     left: 0,
@@ -221,8 +225,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     width: "100%",
     height: 70,
-    
-    
   },
   datePicker: {
     borderTopColor: "black",
