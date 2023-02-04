@@ -1,0 +1,35 @@
+#root {
+  max-width: 1280px;
+  padding-top: 0px;
+  padding-left: 20px;
+  text-align: center;
+}
+
+
+.Title {
+  text-align: start;
+  
+}
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.appName {
+  font-size: 3.2em;
+  color: rgb(255, 187, 0);
+  margin-bottom: 0px;
+}
+
+.author {
+  font-size: small;
+  padding-top: 10px;
+}
+
+
+.reminders {
+  max-height: 60vh;
+}
