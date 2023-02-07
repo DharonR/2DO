@@ -102,9 +102,21 @@
 // });
 
 import React from "react";
-import "./Reminder.css"
+import "./Reminder.css";
 
-export default class Reminder extends React.Component {
+export default class Reminder extends React.Component<
+  {
+    keyVal: number;
+    deleteReminder: () => void;
+    completeReminder: () => void;
+    val: {
+      title: string;
+      schedule: string;
+      completed: boolean;
+    };
+  },
+  {}
+> {
   state = {
     crd: "completed",
     ucrd: "reminder",
@@ -113,8 +125,8 @@ export default class Reminder extends React.Component {
   render() {
     return (
       <div key={this.props.keyVal} className="reminderStyle">
-        <p className={this.state.cmpltd}>{this.props.val.title}</p>
-        <p className={this.state.cmpltd}>{this.props.val.schedule}</p>
+        <p className={this.props.val.completed ? "completed" : "reminder"}>{this.props.val.title}</p>
+        <p className={this.props.val.completed ? "completed" : "reminder"}>{this.props.val.schedule}</p>
         <button
           onClick={this.props.deleteReminder}
           className="deleteReminderStyle"
@@ -122,7 +134,7 @@ export default class Reminder extends React.Component {
           <p className="deleteReminderText"> X </p>
         </button>
         <button
-          onClick={this.completeReminder.bind(this)}
+          onClick={this.props.completeReminder}
           className="completeReminderStyle"
         >
           <p className="completeReminderText"> ✓ </p>
@@ -130,7 +142,11 @@ export default class Reminder extends React.Component {
       </div>
     );
   }
-  completeReminder() {
-    this.setState({ cmpltd: this.state.crd });
-  }
+  // completeReminder() {
+  //   if (this.props.val.completed == true) {
+  //     this.setState({ completed: false });
+  //   } else {
+  //     this.setState({ completed: true });
+  //   }
+  // }
 }
