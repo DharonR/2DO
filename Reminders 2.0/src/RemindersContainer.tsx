@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Reminder from "../src/Reminder";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import "react-datetime-picker/dist/DateTimePicker.css";
 import "./RemindersContainer"
+import DateTimePicker from 'react-datetime-picker';
 
 function RemindersBox () {
   const [reminderArray, setReminderArray] = useState([
@@ -26,6 +27,7 @@ function RemindersBox () {
         key={key}
         keyVal={key}
         val={val}
+        completeReminder={() => completeReminder(key)}
         deleteReminder={() => deleteReminder(key)}
       />
     );
@@ -49,6 +51,7 @@ function RemindersBox () {
         },
       ]);
       setReminderTitle("");
+      hideDateTimePicker();
     }
   };
 
@@ -58,13 +61,27 @@ function RemindersBox () {
       `${date.getDate()}/${date.getMonth() +
         1}/${date.getFullYear()} @ ${date.getHours()}:${date.getMinutes()}`
     );
-    hideDateTimePicker();
+    
   };
 
   const deleteReminder = (key: number) => {
     reminderArray.splice(key, 1);
     setReminderArray([...reminderArray]);
   };
+
+  const completeReminder = (key: number) => {
+    let updatedReminderArray = [...reminderArray];
+    updatedReminderArray[key].completed = !updatedReminderArray[key].completed;
+    setReminderArray(updatedReminderArray);
+  };
+
+  // const completeReminder = () => {
+  //   if (this.props.val.completed == true) {
+  //     setState({ completed: false });
+  //   } else {
+  //     setState({ completed: true });
+  //   }
+  // }
     return (
       <div className="container">
         {remindersList}
@@ -96,9 +113,13 @@ function RemindersBox () {
                 //   onChange={this.handleConfirm.bind(this.state)}
                 //   onClose={this.hideDateTimePicker.bind(this)}
                 // />
-                <DatePicker
-                  selected={rDate}
-                  onChange={(date: Date) => handleConfirm(date)}
+                <DateTimePicker
+                 dayPlaceholder={rDate.toDateString()}
+                 hourPlaceholder={rDate.toTimeString()}
+                 minDate={rDate}
+                 name="date"
+                onChange={(date: Date) => handleConfirm(date)}
+
                 />
               )}
             </div>
