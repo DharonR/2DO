@@ -1,10 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Navigation} from 'react-native';
-import RemindersPage from './screens/RemindersPage';
+import React, { useState } from "react";
+import HomeScreen from "./screens/HomeScreen";
+import trackers from "./trackers";
 
 export default function App() {
-  return (
-  <RemindersPage />
-  );
+  const [current, setCurrent] = useState("Home");
 
+  if (current === "Home") {
+    return <HomeScreen navigate={setCurrent} />;
+  }
+
+  const TrackerComponent = trackers[current];
+  return <TrackerComponent goBack={() => setCurrent("Home")} />;
 }
