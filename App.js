@@ -1,10 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Navigation} from 'react-native';
-import RemindersPage from './screens/RemindersPage';
+import LifeOS from "./screens/LifeOS";
 
 export default function App() {
-  return (
-  <RemindersPage />
-  );
-
+  return <LifeOS />;
 }

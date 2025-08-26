@@ -10,8 +10,9 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  Platform,
 } from "react-native";
-import { Component, useState } from "react";
+import { Component } from "react";
 import Reminder from "../app/components/Reminder";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
@@ -58,9 +59,6 @@ export default class remindersClass extends Component {
           behavior={Platform.OS === "ios" ? "padding" : "height"}
           style={styles.container}
         >
-          <View style={styles.header}>
-            <Text style={styles.headerText}>REMINDERS</Text>
-          </View>
 
           <ScrollView
             style={styles.reminderList}
@@ -163,20 +161,6 @@ export default class remindersClass extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  header: {
-    backgroundColor: "orange",
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottomWidth: 10,
-    borderBottomColor: "#ddd",
-  },
-  headerText: {
-    color: "white",
-    fontSize: 38,
-    padding: 15,
-    paddingTop: 30,
-    fontFamily: "monospace",
   },
   reminderContainer: {
     padding: 100,

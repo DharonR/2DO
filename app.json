@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "DoneWithIt",
-    "slug": "DoneWithIt",
+    "name": "LifeOS",
+    "slug": "lifeos",
     "sdkVersion": "47.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,14 +19,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dharonr.DoneWithIt"
+      "bundleIdentifier": "com.lifeos.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.dharonr.DoneWithIt"
+      "package": "com.lifeos.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"

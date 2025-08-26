@@ -1,5 +1,10 @@
-# Reminders
-Side Project: Reminders app using React Expo. <br />
-Started on December 26, 2022. <br />
-Last updated on: December 28, 2022. <br />
-Link to demo: https://snack.expo.dev/@dharonr/reminder-app
+# LifeOS
+
+LifeOS is a simple life management app built with React Native and Expo. It helps forgetful people remember everything and stay on task by combining reminders and notes in one place.
+
+## Features
+
+- Create reminders with scheduled dates and mark them complete.
+- Jot down quick notes to capture ideas or information.
+
+This project started as a basic reminders app and is evolving into a personal LifeOS.
